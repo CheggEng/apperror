@@ -1,0 +1,9 @@
+To test under both python2 and python3:
+
+ tox
+
+To test with a given python:
+
+ pip(3) install pytest
+ pytest demo.py
+

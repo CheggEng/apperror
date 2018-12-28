@@ -1,0 +1,8 @@
+.tox
+__*
+*.pyc
+.*project*
+.*html*
+*.egg-info
+dist
+*.zip
