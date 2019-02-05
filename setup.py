@@ -10,7 +10,32 @@ with open(path.join(here, 'README.md'), encoding='utf-8') as f:
 # The following breaks under tox testing
 # with open(path.join(here, 'demo.py'), encoding='utf-8') as f:
 #     long_description = ''.join([long_description, "\n", f.read()])
-long_description += "\nSee demo.py for full capabilities and usage examples"
+long_description += '''
+These are libraries that help implement the principles of effective logging.
+
+from apperror import AppLogger, AppStatus, AppError
+
+l = AppLogger('demo')
+l.error("I owe: $", 300, " dollars to my ex")
+'demo: ERROR: demo.py:38: I owe: $400 dollars to my ex'
+
+s = AppStatus()
+if s.ok: print("ok!")
+'ok'
+
+s.addError("I owe money")
+if s.ok: print("ok!")
+if s.hasErrors(): l.warn('We have problems: ', str(s))
+demo: WARN: demo 50: We have problems: I owe money
+
+try:
+  raise AppError("We have lots of problems!")
+except AppError as e:
+  l.info(e)
+'demo: INFO: demo 57: we have lots of problems!'
+
+
+See demo.py for full capabilities and usage examples'''
 
 setup(
     name='apperror',
@@ -24,7 +49,7 @@ setup(
     long_description=long_description,
 
     # The project's main homepage.
-    url='https://github.com/CheggEng/REPLACE_ME',  # TODO:  REPLACE THIS
+    url='https://github.com/CheggEng/apperror'
 
     # Author details
     author='Joshua Richardson (contact on github)',

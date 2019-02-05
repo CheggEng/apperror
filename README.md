@@ -10,5 +10,5 @@ Please see demo.py in this distribution for usage.
 
 CHANGELOG:
 
-1.0.0:  Initial version.
+1.1.0:  Initial version.
 
