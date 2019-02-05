@@ -49,7 +49,7 @@ setup(
     long_description=long_description,
 
     # The project's main homepage.
-    url='https://github.com/CheggEng/apperror'
+    url='https://github.com/CheggEng/apperror',
 
     # Author details
     author='Joshua Richardson (contact on github)',
