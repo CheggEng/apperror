@@ -1,4 +1,4 @@
-from app_error import AppLogger, AppStatus, AppError
+from apperror import AppLogger, AppStatus, AppError
 import six # so this module can work with both python 2 and 3 (2*3 = 6)
 import io # for buffering
 import re # for testing
@@ -352,7 +352,7 @@ demo: WARN: demo.py:341: I'm in the error handler: demo: ERROR: demo.py:341: I'm
 ### frame 5: b()
 ### frame 6: a()
 def do_tell_me_how_deep_i_am(l):
-    from app_error import numFramesInThisModule
+    from apperror import numFramesInThisModule
     def a():
         l.info("num frames deep in this module: ", numFramesInThisModule())
     def b():

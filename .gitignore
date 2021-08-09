@@ -1,5 +1,5 @@
 .tox
-__*
+#__* cannot do this; ignores __init__.py
 *.pyc
 .*project*
 .*html*
