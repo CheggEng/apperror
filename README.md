@@ -10,6 +10,6 @@ Please see demo.py in this distribution for usage.
 
 CHANGELOG:
 
-1.1.1:  Declare dependency on six; refactor to add (missing?) code
+2.0.0:  Remove support for python 2
 1.1.0:  Initial version.
 

@@ -1,4 +1,10 @@
 To build a distribution of this package, don't forget to rev the version in
-setup.py, add change log to end of README.md, and then:
+setup.cfg, add change log to end of README.md, and then from https://packaging.python.org/tutorials/packaging-projects/:
 
-python setup.py sdist upload
+python(3) -m build
+python(3) -m twine upload --repository testpypi dist/*
+python3 -m pip install --index-url https://test.pypi.org/simple/ --no-deps apperror
+python3 -m twine upload dist/*
+python3 -m pip install apperror
+
+# was:  python setup.py sdist upload

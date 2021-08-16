@@ -1,5 +1,4 @@
 from apperror import AppLogger, AppStatus, AppError
-import six # so this module can work with both python 2 and 3 (2*3 = 6)
 import io # for buffering
 import re # for testing
 #
@@ -65,8 +64,8 @@ def do_basic_status(l):
     
     s = AppStatus("unable to find boot sector")
     s.addWarn("backup all data now")
-    print(six.text_type(s))
-    if s.hasErrors(): l.error("We have a problem: ", six.text_type(s))  # shows whole status, inc. the warning
+    print(str(s))
+    if s.hasErrors(): l.error("We have a problem: ", str(s))  # shows whole status, inc. the warning
     return '''
 demo: INFO: demo.py:57: we're doing fine
 demo: ERROR: demo.py:61: We have a problem: demo.py:59: unable to find boot sector; WARNINGS: demo.py:60: backup all data now
@@ -158,7 +157,7 @@ demo: INFO: demo.py:152: we're ok
 ## dumping the status object
 ### shows all info, warnings, errors, and everything else in the status object, s
 def do_app_status_dump(l):
-    l.info(six.text_type(AppStatus()))
+    l.info(str(AppStatus()))
     return '''
 demo: INFO: demo.py:160: ok
 '''
@@ -383,7 +382,7 @@ def assertMatching(a, b):
     a_lines = a.strip().split("\n")
     b_lines = b.strip().split("\n")
     if len(a_lines) != len(b_lines):
-        raise AssertionError("a has " + six.text_type(len(a_lines)) + ", but b has " + six.text_type(len(b_lines)) + " lines: a={" + a + "}, b={" + b + "}")
+        raise AssertionError("a has " + str(len(a_lines)) + ", but b has " + str(len(b_lines)) + " lines: a={" + a + "}, b={" + b + "}")
     for i in range(0, len(a_lines)):
         a_line = norm_filepath.sub('demo.py:<LINE>', a_lines[i])
         a_line = norm_pytest.sub('pytest', a_line)

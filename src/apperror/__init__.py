@@ -38,7 +38,6 @@ from dumper import dumps
 
 import os
 import copy
-import six # for python 2 and 3 compatibility
 
 'This description documents many of the logging functions later in this module.'
 LOG_FUNC_DESCRIPTION = '''
@@ -76,7 +75,7 @@ def adorn(msg, *more_msg, **kwargs):
     line_no = str(calling_frame.f_lineno)
     call_file = inspect.getsourcefile(calling_frame)
     def makeASCII(s):
-        if isinstance(s, six.string_types):
+        if isinstance(s, str):
             return s.encode('ascii', errors='replace').decode()
         elif isinstance(s, (int, float, complex)):
             return str(s)
@@ -309,7 +308,7 @@ Only log if verbose, or if verbosity higher than given verbosity.
         else:
             if self.lock is not None:
                 self.lock.acquire()
-            six.print_(formatted, file=self.diag_stream)
+            print(formatted, file=self.diag_stream)
             if self.lock is not None:
                 self.lock.release()
 
